@@ -1,18 +1,63 @@
-# Club Nautico Valdivia
+Club Náutico Valdivia - Backend
 
-Proyecto pagina web del ramo "Desarrollo Fullstack II"
+API REST desarrollada con Spring Boot para la gestión de usuarios, muelles, almacenes, servicios, boletas y documentos del Club Náutico Valdivia.
 
-## Estructura
+Tecnologías utilizadas
 
-| URL                  | Descripcion                                                                             |
-|----------------------|-----------------------------------------------------------------------------------------|
-| /index               | Pagina de entrada. Informacion / Historia del club, descripcion de muelles y servicios. |
-| /muelles             | Lista de todos los muelles con su costos asociados y dimensiones maximas                |
-| /almacenes           | Lista de todos los almacenes con sus costos asociados y dimensiones maximas             |
-| /servicios           | Lista de todos los servicios y sus costos asociados                                     |
-| /arriendos           | Arriendo de ser servicios y espacios                                                    |
-| /carrito             | Carrito de compras para los servicios y espacios                                        |
-| /inicio              | Inicio de sesion para socios existentes                                                 |
-| /registro            | Registro para nuevos socios                                                             |
-| /inicio-admin        | Inicio de sesion para administradores                                                   |
-| /vista-marina        | Vista general del uso de los espacios de la marina                                      |
+Java 21 y Spring Boot
+
+Spring Data JPA y HATEOAS
+
+PostgreSQL (Neon)
+
+Neon Object Storage
+
+Swagger
+
+Maven
+
+Lombok
+
+Docker
+
+Render
+
+Arquitectura
+
+El proyecto utiliza una arquitectura por capas:
+
+Model: entidades y relaciones.
+
+DTO: transferencia de datos.
+
+Repository: acceso a la base de datos.
+
+Service: lógica de negocio.
+
+Controller: endpoints REST.
+
+Config: configuraciones del sistema.
+
+Ejecución local
+
+Configurar las variables de entorno en el archivo .env y ejecutar:
+
+docker compose up --build -d
+
+Despliegue y documentación
+
+El backend se encuentra desplegado en Render y conectado a Neon.
+
+Backend en Render
+
+Documentación Swagger
+
+Proyecto académico
+
+Institución: Duoc UC.
+
+Asignatura: Fullstack II.
+
+Año: 2026.
+
+Proyecto en desarrollo con datos de prueba.
