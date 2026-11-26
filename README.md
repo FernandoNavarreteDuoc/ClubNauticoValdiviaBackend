@@ -1,63 +1,86 @@
-Club Náutico Valdivia - Backend
+# Club Náutico Valdivia - Backend
 
 API REST desarrollada con Spring Boot para la gestión de usuarios, muelles, almacenes, servicios, boletas y documentos del Club Náutico Valdivia.
 
-Tecnologías utilizadas
+## Tecnologías utilizadas
 
-Java 21 y Spring Boot
+- Java 21
+- Spring Boot
+- Spring Data JPA
+- Spring HATEOAS
+- PostgreSQL (Neon)
+- Neon Object Storage
+- Swagger
+- Maven
+- Lombok
+- Docker
+- Render
 
-Spring Data JPA y HATEOAS
-
-PostgreSQL (Neon)
-
-Neon Object Storage
-
-Swagger
-
-Maven
-
-Lombok
-
-Docker
-
-Render
-
-Arquitectura
+## Arquitectura
 
 El proyecto utiliza una arquitectura por capas:
 
-Model: entidades y relaciones.
+- **Model:** entidades y relaciones de la base de datos.
+- **DTO:** transferencia de datos.
+- **Repository:** acceso a la base de datos.
+- **Service:** lógica de negocio.
+- **Controller:** endpoints REST.
+- **Config:** configuraciones del sistema.
 
-DTO: transferencia de datos.
+## Clases del proyecto
 
-Repository: acceso a la base de datos.
+| Model | DTO | Repository | Service | Controller |
+|---|---|---|---|---|
+| Usuario | UsuarioDTO | UsuarioRepository | UsuarioService | UsuarioController |
+| Rol | RolDTO | RolRepository | RolService | RolController |
+| Espacio | EspacioDTO | EspacioRepository | EspacioService | EspacioController |
+| TipoEspacio | TipoEspacioDTO | TipoEspacioRepository | TipoEspacioService | TipoEspacioController |
+| Servicio | ServicioDTO | ServicioRepository | ServicioService | ServicioController |
+| Boleta | BoletaDTO | BoletaRepository | BoletaService | BoletaController |
+| Detalle | DetalleDTO | DetalleRepository | DetalleService | DetalleController |
+| TipoBoleta | TipoboletaDTO | TipoBoletaRepository | TipoBoletaService | TipoBoletaController |
+| Metodopago | MetodopagoDTO | MetodopagoRepository | MetodopagoService | MetodopagoController |
+| Documento | DocumentoDTO | DocumentoRepository | DocumentoService | DocumentoController |
 
-Service: lógica de negocio.
+### Clases adicionales
 
-Controller: endpoints REST.
+| Clase | Descripción |
+|---|---|
+| ClubnauticovaldiviaApplication | Inicio de la aplicación Spring Boot. |
+| StorageConfig | Configuración de Neon Object Storage. |
 
-Config: configuraciones del sistema.
+## Base de datos
 
-Ejecución local
+Base de datos PostgreSQL alojada en Neon, compuesta por 10 tablas relacionadas y 84 registros iniciales de prueba.
 
-Configurar las variables de entorno en el archivo .env y ejecutar:
+Los archivos se almacenan en Neon Object Storage y sus metadatos se registran en PostgreSQL.
 
+## Ejecución local
+
+Configurar las variables de entorno en el archivo `.env` y ejecutar:
+
+```bash
 docker compose up --build -d
+```
 
-Despliegue y documentación
+Para detener el contenedor:
 
-El backend se encuentra desplegado en Render y conectado a Neon.
+```bash
+docker compose down
+```
 
-Backend en Render
+## Despliegue y documentación
 
-Documentación Swagger
+El backend se encuentra desplegado en Render mediante Docker.
 
-Proyecto académico
+- [Backend en Render](https://clubnautico-backend.onrender.com)
+- [Documentación Swagger](https://clubnautico-backend.onrender.com/swagger-ui/index.html)
 
-Institución: Duoc UC.
+## Proyecto académico
 
-Asignatura: Fullstack II.
+- **Institución:** Duoc UC.
+- **Asignatura:** Fullstack II.
+- **Semestre:** Cuarto semestre.
+- **Año:** 2026.
 
-Año: 2026.
-
-Proyecto en desarrollo con datos de prueba.
+Proyecto en desarrollo académico.
