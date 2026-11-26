@@ -31,9 +31,8 @@ public class Usuario {
     @Column(unique = true, length = 12, nullable = false)
     private String rut;
 
-    @NotBlank(message = "El nombre no puede estar vacío")
-    @Size(min = 2, max = 50, message = "El nombre debe contener entre 2 y 50 caracteres")
-    @Column(unique = true, length = 50, nullable = false)
+    @NotNull(message = "El nombre no puede ser nulo")
+    @Column(length = 50, nullable = false)
     private String nombre;
 
     @NotNull(message = "El teléfono no puede ser nulo")
@@ -41,25 +40,22 @@ public class Usuario {
 
     @NotBlank(message = "El correo no puede estar vacío")
     @Size(min = 10, max = 100, message = "El correo debe contener entre 10 y 100 caracteres")
-    @Column(unique = false, length = 100, nullable = false)
+    @Column(unique = true, length = 100, nullable = false)
     private String correo;
 
+    @JsonIgnore
+    @ToString.Exclude
     @NotBlank(message = "La contraseña no puede estar vacía")
-    @Size(min = 5, max = 20, message = "La contraseña debe contener entre 5 y 20 caracteres")
-    @Column(unique = false, length = 20, nullable = false)
+    @Column(length = 255, nullable = false)
     private String contraseña;
 
     //Relaciones
 
     //Muchos usuarios pueden tener un rol
+    @NotNull(message = "El rol no puede ser nulo")
     @ManyToOne
-    @JoinColumn(name = "rol_id")
+    @JoinColumn(name = "rol_id", nullable = false)
     private Rol rol;
-
-    //Muchos usuarios pueden tener un tipo de usuario
-    @ManyToOne
-    @JoinColumn(name = "tipo_usuario_id")
-    private TipoUsuario tipoUsuario;
 
     //Un usuario puede tener muchos espacios
     @JsonIgnore
