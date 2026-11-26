@@ -25,9 +25,9 @@ import lombok.ToString;
 @Entity 
 @Table(name = "usuarios")
 public class Usuario {
-    @Id 
+    @Id
     @NotBlank(message = "El rut no puede estar vacío")
-    @Size(min = 10, max = 11, message = "El rut debe contener entre 10 y 11 caracteres")
+    @Size(min = 11, max = 12, message = "El rut debe contener entre 11 y 12 caracteres")
     @Column(unique = true, length = 12, nullable = false)
     private String rut;
 
