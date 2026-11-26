@@ -38,7 +38,8 @@ public class Documento {
     @Column(nullable = false)
     private String tipoArchivo;
 
-    @Column(nullable = false)
+    @NotBlank(message = "La ruta del archivo no puede estar vacía")
+    @Column(nullable = false, length = 1024)
     private String rutaArchivo;
 
     @NotNull
