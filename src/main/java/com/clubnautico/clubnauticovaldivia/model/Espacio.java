@@ -39,11 +39,11 @@ public class Espacio {
     private String nombre;
 
     @Min(value = 0, message = "El precio diario no puede ser negativo")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer precioDiario;
 
     @Min(value = 0, message = "El precio semanal no puede ser negativo")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer precioSemanal;
 
     @Min(value = 0, message = "El precio mensual no puede ser negativo")
